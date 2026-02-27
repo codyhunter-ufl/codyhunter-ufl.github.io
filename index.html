@@ -1,222 +1,118 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cody Hunter | Geology & Geography Portfolio</title>
-  <meta name="description" content="Cody Hunter — Geology & Geography double major at the University of Florida. GIS, remote sensing, hazards, and research portfolio." />
-  <link rel="stylesheet" href="style.css">
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cody Hunter | Geology & Geography Portfolio</title>
+    <meta
+      name="description"
+      content="Cody Hunter — Geology & Geography double major at the University of Florida. GIS, remote sensing, hazards, and research portfolio."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-  <header>
-    <div class="container">
-      <div class="nav">
+  <body>
+    <header>
+      <div class="container nav">
         <div class="brand">
           <div class="name">Cody Hunter</div>
           <div class="sub">Geology & Geography • University of Florida</div>
         </div>
 
-        <nav aria-label="Primary">
+        <nav>
           <ul>
-            <li><a class="pill" href="#home">Home</a></li>
-            <li><a class="pill" href="#about">About</a></li>
-            <li><a class="pill" href="#projects">Projects</a></li>
-            <li><a class="pill" href="#gallery">Field Photos</a></li>
-            <li><a class="pill" href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main id="home" class="container">
-    <!-- HERO -->
-    <div class="hero">
-      <div class="heroGrid">
-        <div class="heroCard" aria-label="Hero image">
-          <!-- Replace the src if you rename files -->
-          <img src="images/hikingimage.jpeg" alt="Cody Hunter overlooking mountains" />
-          <div class="overlay"></div>
-          <div class="heroText">
-            <div class="kicker"><span class="dot" aria-hidden="true"></span> GIS • Remote Sensing • Hazards • Field Research</div>
-            <h1>Geology & Geography Portfolio</h1>
-            <p class="lead">
-              I’m Cody Hunter, a Geology & Geography double major at the University of Florida.
-              This site highlights GIS analysis, remote sensing & machine learning, health/environmental exposure mapping,
-              and undergraduate research in structural geology and stratigraphy.
-            </p>
-            <div class="ctaRow">
-              <a class="btn primary" href="#projects">Explore Projects</a>
-              <a class="btn" href="#contact">Get in Touch</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="stack">
-          <aside class="card" id="about">
-            <h2>About</h2>
-            <p>
-              My work focuses on spatial thinking and Earth systems: integrating geologic context with
-              GIS, remote sensing, and reproducible analysis to support decisions in hazards, resources,
-              and environmental health.
-            </p>
-            <div class="tagRow" aria-label="Skills">
-              <span class="tag">ArcGIS Pro</span>
-              <span class="tag">Spatial Statistics</span>
-              <span class="tag">Remote Sensing</span>
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Geologic Mapping</span>
-            </div>
-          </aside>
-
-          <aside class="card">
-            <h2>Quick links</h2>
-            <p>
-              Jump to the table of contents, view field photos, or contact me.
-            </p>
-            <div class="ctaRow" style="margin-top:12px;">
-              <a class="btn" href="#projects">Table of Contents</a>
-              <a class="btn" href="#gallery">Field Photos</a>
-              <a class="btn" href="mailto:codyhunter@ufl.edu">Email</a>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECTS / TOC -->
-    <section id="projects" aria-label="Portfolio projects">
-      <div class="sectionTitle">
-        <h3>Table of Contents</h3>
-        <div class="note">Selected projects (clickable sections for future expansion)</div>
-      </div>
-
-      <div class="grid">
-        <article class="proj">
-          <div class="projTop">
-            <h4>Shield vs. Stratovolcanoes: Comparing Hazards of Volcanism in Hawaii and Washington</h4>
-            <div class="meta">
-              <span class="chip">Course: GIS4324 GIS Analysis of Hazard Vulnerability</span>
-              <span class="chip">Date: Spring 2024</span>
-            </div>
-          </div>
-          <div class="projBody">
-            <ul>
-              <li>Used ArcGIS Pro to compare and manipulate published hazard maps and supporting datasets (hazards, zoning, demographic layers).</li>
-              <li>Georeferenced a post-eruption hazard map and overlaid fatality locations to evaluate exposure relative to blast/lahar extents.</li>
-              <li>Conducted an exposure assessment by intersecting hazard footprints with census tracts and comparing risk context using FEMA’s National Risk Index (NRI).</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="proj">
-          <div class="projTop">
-            <h4>Enhancing Mineral Exploration through Remote Sensing and Machine Learning: A Focus on Cobalt and Nickel</h4>
-            <div class="meta">
-              <span class="chip">Course: GIS4037 Remote Sensing</span>
-              <span class="chip">Date: Fall 2024</span>
-            </div>
-          </div>
-          <div class="projBody">
-            <ul>
-              <li>Applied remote-sensing methods to mineral exploration using Sentinel-2 spectral data and a DEM, including development/use of spectral-index approaches.</li>
-              <li>Implemented supervised machine learning (Random Tree / RF-style classification) with manually selected training points and known mining locations as training data for the Co/Ni class.</li>
-              <li>Combined spectral-index and machine-learning outputs into an integrated map and compared results against known mining operations as an accuracy check.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="proj">
-          <div class="projTop">
-            <h4>Vog Exposure and Respiratory Vulnerability in Hawaiʻi</h4>
-            <div class="meta">
-              <span class="chip">Course: GIS4424C Applications in GIS for Disease Ecology and Zoonoses</span>
-              <span class="chip">Date: Fall 2025</span>
-            </div>
-          </div>
-          <div class="projBody">
-            <ul>
-              <li>Applied spatial-statistics workflows (KDE, Global Moran’s I, Local Moran’s I/LISA, Getis-Ord Gi*) to detect clusters and hot/cold spots in a tract-level risk surface.</li>
-              <li>Built a tract-level “Vog Risk Index” by combining modeled exposure with asthma and COPD prevalence using z-scores.</li>
-              <li>Integrated air-quality monitoring data (SO₂, PM₂.₅) with health-surveillance data and 2020 census-tract polygons for spatial analysis.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="proj">
-          <div class="projTop">
-            <h4>Structural and stratigraphic relationships across the northern boundary of the high-pressure terrane in the Brooks Range orogen (northern Alaska)</h4>
-            <div class="meta">
-              <span class="chip">Course: Undergraduate Research (Honors Thesis)</span>
-              <span class="chip">Date: Spring 2026</span>
-            </div>
-          </div>
-          <div class="projBody">
-            <ul>
-              <li>Defined research questions about fault attitude/type, structural relationships between mapped fault systems, and stratigraphic age relationships across fault-bounded areas.</li>
-              <li>Proposed a workflow using mapping + U–Pb detrital zircon geochronology to constrain stratigraphy and protolith ages (maximum depositional ages and age-peak comparisons).</li>
-              <li>Connected structural + geochronologic results to test tectonic development/exhumation models for the Brooks Range.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-      <!-- Project content sourced from the attached portfolio table of contents -->
-      <!-- See: cHunter_GeoPortfolio.docx -->
+    <!-- PANORAMIC BANNER -->
+    <section class="banner">
+      <img src="images/pano.jpg" alt="Mountain panorama" />
     </section>
 
-    <!-- GALLERY -->
-    <section id="gallery" aria-label="Field photo highlights">
-      <div class="sectionTitle">
-        <h3>Field Photos</h3>
-        <div class="note">A few moments from fieldwork and time outside</div>
-      </div>
+    <main>
+      <!-- HERO INTRO -->
+      <section class="hero container">
+        <h1>Geology & Geography Portfolio</h1>
+        <p>
+          I’m a Geology & Geography double major focused on GIS analysis, remote
+          sensing, hazards, and structural/stratigraphic research.
+        </p>
+        <a class="btn" href="#projects">View Projects</a>
+      </section>
 
-      <div class="gallery">
-        <div class="gBig">
-          <img src="images/pano.jpg" alt="Panoramic view from a ridge with mountains and wide blue sky" />
+      <!-- ABOUT -->
+      <section id="about" class="container section">
+        <h2>About</h2>
+        <p>
+          My work integrates geologic context with spatial analysis to support
+          decision-making in hazards, environmental health, and resource
+          systems. I’m especially interested in field-based research supported
+          by GIS and reproducible analytical workflows.
+        </p>
+
+        <div class="tags">
+          <span>ArcGIS Pro</span>
+          <span>Remote Sensing</span>
+          <span>Spatial Statistics</span>
+          <span>Machine Learning</span>
+          <span>Geologic Mapping</span>
         </div>
+      </section>
 
-        <div class="gSmall">
-          <div>
-            <img src="images/rockystream.jpeg" alt="Geology field scene beside a rocky stream" />
-          </div>
-          <div>
-            <img src="images/seated.jpeg" alt="Hiker seated on a rocky overlook with mountain range in the background" />
-          </div>
+      <!-- PROJECTS -->
+      <section id="projects" class="container section">
+        <h2 class="projects-title">Selected Projects</h2>
+
+        <div class="project-list">
+          <a class="project-link" href="temp.html">
+            Shield vs. Stratovolcanoes<br />
+            <span>Comparing Hazards in Hawaii and Washington</span>
+          </a>
+
+          <a class="project-link" href="temp.html">
+            Mineral Exploration<br />
+            <span>Remote Sensing & Machine Learning</span>
+          </a>
+
+          <a class="project-link" href="temp.html">
+            Vog Exposure & Respiratory Vulnerability<br />
+            <span>Spatial Risk Modeling in Hawaiʻi</span>
+          </a>
+
+          <a class="project-link" href="temp.html">
+            Structural & Stratigraphic Relationships<br />
+            <span>Brooks Range, Alaska</span>
+          </a>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer id="contact">
-    <div class="container">
-      <div class="footerGrid">
+      <!-- FIELD PHOTOS -->
+      <section class="container section">
+        <h2>Field Photos</h2>
+
+        <div class="gallery">
+          <img src="images/seated.jpeg" alt="Overlook view" />
+          <img src="images/rockystream.jpeg" alt="Rocky stream" />
+          <img src="images/hikingimage.jpeg" alt="Mountain hiking scene" />
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="container footer">
         <div>
-          <div style="font-weight:800; font-size:1.15rem;">Cody Hunter</div>
-          <p class="small">
-            Geology & Geography (double major), University of Florida<br />
-            Interested in GIS analysis, remote sensing, hazards, and structural/stratigraphic research.
-          </p>
-          <p class="small">© <span id="year"></span> Cody Hunter</p>
+          <strong>Cody Hunter</strong><br />
+          Geology & Geography — University of Florida
         </div>
-
-        <div class="contactBox" aria-label="Contact information">
-          <div style="font-weight:700; margin-bottom:8px;">Contact</div>
-          <p class="small" style="margin-top:0;">
-            Email: <a href="mailto:codyhunter@ufl.edu">codyhunter@ufl.edu</a>
-          </p>
-          <p class="small">
-            Want a PDF portfolio or project report? Email me and I’ll share the latest version.
-          </p>
+        <div>
+          Email: <a href="mailto:codyhunter@ufl.edu">codyhunter@ufl.edu</a>
         </div>
       </div>
-    </div>
-  </footer>
-
-  <script>
-    // Tiny enhancement: auto year in footer (no dependencies)
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
+    </footer>
+  </body>
 </html>
