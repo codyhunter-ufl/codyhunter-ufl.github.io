@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shield vs. Stratovolcanoes | Cody Hunter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="name">Cody Hunter</div>
+          <div class="sub">Geology & Geography • University of Florida</div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="resume.html">Resume/CV</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container section">
+        <a class="back-link" href="index.html">← Back to Portfolio</a>
+
+        <div class="project-page-header">
+          <h1>Shield vs. Stratovolcanoes: Comparing Hazards of Volcanism in Hawaiʻi and Washington</h1>
+          <div class="project-meta">
+            <div><strong>Course:</strong> GIS4324 — GIS Analysis of Hazard Vulnerability</div>
+            <div><strong>Instructor:</strong> Dr. Kevin Ash</div>
+            <div><strong>Date:</strong> Spring 2025</div>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <h2>Background</h2>
+          <p>Volcanic hazards vary considerably between volcano types, with shield volcanoes and stratovolcanoes representing the two principal categories. Shield volcanoes, such as Mauna Loa on the Big Island of Hawaiʻi, produce low-viscosity basaltic lavas capable of traveling tens of kilometers, gradually building vast low-sloping structures through frequent eruptions. Their primary hazards are lava flows, vog (volcanic smog), and eruption-related earthquakes. Stratovolcanoes, such as Mount St. Helens in Washington State, are fed by rhyolitic or andesitic magmas of much higher viscosity, which requires substantial pressure to move and produces infrequent but extraordinarily violent explosive eruptions. These events generate a broader range of hazards, including pyroclastic flows, lahars, tephra fall, and large earthquakes, with the potential to disrupt infrastructure at a regional or even global scale.</p>
+          <p>This project addresses the question of how the hazards associated with Mauna Loa and Mount St. Helens differ in terms of spatial distribution, frequency, and social vulnerability, and what those differences imply for risk mitigation and emergency planning. The analysis focuses on the 2022 Mauna Loa eruption and the 1980 Mount St. Helens eruption as the primary case studies for each volcano.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Data</h2>
+          <p>Several datasets were integrated for this analysis. USGS Lava-Flow Hazard Zone Maps for Hawaii Island, originally from Open-File Report 74-239 (Mullineaux & Peterson, 1974) and reformatted by Wright et al. (1992), classify the island into nine zones from highest (Zone 1) to lowest (Zone 9) hazard based on historical flow coverage and proximity to vents. USGS geospatial data for the November 27–December 10, 2022, Mauna Loa eruption provided polygon shapefiles of active lava-flow margins and fissure vents. Infrastructure zoning data (classifying parcels as Urban, Agricultural, Rural, or Conservation) along with a Native Hawaiian Land dataset, were sourced from the Hawaiʻi State Office of Planning and Sustainable Development.</p>
+          <p>For Mount St. Helens, hazard extents (pyroclastic-flow, lahar, and ashfall) were sourced from the USGS Washington Simplified Hazards Map and Open-File Report 95-497 (Wolfe & Pierson, 1995), capturing the spatial footprint of the May 18, 1980, VEI 5 eruption. A post-eruption map from the U.S. Forest Service Pacific Northwest Research Station was georeferenced in ArcGIS Pro, and a KMZ file compiled by photographer Kelly Michals provided the locations of all 57 confirmed fatalities from the 1980 eruption.</p>
+          <p>Tract-level population and housing data from the U.S. Census Bureau's American Community Survey 2016–2020 5-year Summary File supported the exposure assessment, while FEMA's National Risk Index (NRI) provided tract-level volcanic hazard risk scores incorporating expected annual loss, social vulnerability, and hazard frequency. A USGS Washington simplified hazard map covering pyroclastic-flow, lahar, and regional lava flow extents for the entire state of Washington was also included for broader context.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Methods</h2>
+          <p>Analysis was conducted primarily in ArcGIS Pro. The U.S. Forest Service post-eruption map of the 1980 Mount St. Helens event was georeferenced against a DEM of the Cascade Range to establish accurate spatial positioning of the lateral blast, pyroclastic-flow, and lahar extents. The 57 confirmed fatality locations were then overlaid on this georeferenced map to visualize where lives were lost relative to each hazard zone. All layers were reprojected to NAD 1983 UTM (Zone 4N for Hawaiʻi; Zone 10N for Washington) to ensure consistent spatial referencing across datasets.</p>
+          <p>For Mauna Loa, the 2022 eruption lava-flow polygons were overlaid on the Hawaii State infrastructure zoning layer and intersected with the Native Hawaiian Land dataset to assess land-use impacts. The USGS Lava-Flow Hazard Zones (1–9) were added to provide the broader hazard context for the island. A basic population exposure assessment was conducted by clipping 2020 census tract boundaries to each hazard and eruption footprint for both study areas.</p>
+          <p>FEMA NRI volcanic hazard scores were extracted for census tracts in both Hawaii and Washington and mapped to allow direct comparison of risk levels between the two states. The combination of hazard extents, population exposure, infrastructure zoning, and NRI scores produced maps illustrating where lava flows, pyroclastic flows, lahars, and ashfall intersect with resident populations and critical infrastructure.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Results</h2>
+          <p>The 2022 Mauna Loa eruption produced a lava flow approximately 19 km in length that traveled northeast from the summit rift, crossing the Mauna Loa Weather Observatory access road before stopping 2.8 km short of the Daniel K. Inouye Highway (Saddle Road). The eruption covered approximately 31 km² and was the first by Mauna Loa in 38 years. Although USGS Lava-Flow Hazard Zones 1–3 collectively encompass roughly 22% of Hawaii Island's area, the 2022 flow intersected only conservation-zoned land, with no damage to urban or rural infrastructure. Approximately 45,000 residents, about 23% of the Big Island's population, live within Zones 1–2, along with portions of the Saddle Road, power lines, and larger population centers such as Hilo.</p>
+          <p>The May 18, 1980, Mount St. Helens eruption, triggered by a magnitude 5+ earthquake that released a massive flank collapse and lateral blast, was rated VEI 5. Pyroclastic and debris avalanches scoured approximately 57 km² around the crater, while lahars inundated 16 km² of downstream floodplain in the North Fork Toutle and Muddy River valleys. Ashfall blanketed over 57,000 km² across Washington, Oregon, and Idaho, depositing 1 cm or more of ash across roughly 22,000 mi². Approximately 12,000 people reside within the combined pyroclastic-flow and lahar zones, with an additional estimated 650,000 at risk of receiving significant ashfall in a comparable future eruption. Critical transportation infrastructure, including the I-5 corridor, Spirit Lake Highway, and freight rail, falls within high-ashfall zones.</p>
+          <p>FEMA NRI volcanic hazard scores further reflect the contrast between the two volcanoes. Census tracts across Hawaii Island score below 50 on the 0–100 NRI scale, placing the island comparatively low in national volcanic risk rankings. Washington tracts within pyroclastic and lahar zones reach scores into the 90s, driven primarily by historic-loss ratios from the 1980 eruption, estimated at $3.3 billion in direct and indirect losses, and by the broad downwind ashfall exposure that extends well beyond the immediate blast zone.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Figures</h2>
+          <div class="figure-grid">
+            <div class="figure-block full-width">
+              <div class="figure-placeholder">Figure 1 — Add georeferenced USFS post-eruption map image here</div>
+              <p class="figure-caption">Figure 1: Georeferenced U.S. Forest Service Pacific Northwest Research Station post-eruption map of the May 18, 1980, Mount St. Helens eruption, showing lateral blast, pyroclastic-flow, and lahar disturbance zones against a DEM of the Cascade Range. Red points indicate the locations of all 57 confirmed fatalities.</p>
+            </div>
+            <div class="figure-block">
+              <div class="figure-placeholder">Figure 2a — USGS Lava-Flow Hazard Zones (Zones 1–9) for Hawaii Island</div>
+              <p class="figure-caption">Figure 2 (above): USGS Lava-Flow Hazard Zones (Zones 1–9) for Hawaii Island, with Zone 1 representing the highest hazard.</p>
+            </div>
+            <div class="figure-block">
+              <div class="figure-placeholder">Figure 2b — 2022 Mauna Loa eruption footprint overlaid on Hawaii State infrastructure zoning</div>
+              <p class="figure-caption">Figure 2 (below): Footprint of the November 27–December 10, 2022, Mauna Loa eruption overlaid on Hawaii State infrastructure zoning classes.</p>
+            </div>
+            <div class="figure-block full-width">
+              <div class="figure-placeholder">Figure 3 — FEMA NRI volcanic hazard scores: Hawaii Island (left) and Washington State (right)</div>
+              <p class="figure-caption">Figure 3: FEMA National Risk Index (NRI) volcanic hazard scores by census tract for Hawaii Island (left) and Washington State (right), on a 0–100 scale. Hawaii tracts score below 50 throughout; Washington tracts within pyroclastic-flow and lahar zones reach scores into the 90s.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer id="contact">
+      <div class="container footer">
+        <div>
+          <strong>Cody Hunter</strong><br />
+          Geology & Geography — University of Florida
+        </div>
+        <div>
+          Email: <a href="mailto:codyhunter@ufl.edu">codyhunter@ufl.edu</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vog Exposure & Respiratory Vulnerability | Cody Hunter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="name">Cody Hunter</div>
+          <div class="sub">Geology & Geography • University of Florida</div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="resume.html">Resume/CV</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container section">
+        <a class="back-link" href="index.html">← Back to Portfolio</a>
+
+        <div class="project-page-header">
+          <h1>Vog Exposure and Respiratory Vulnerability in Hawaiʻi</h1>
+          <div class="project-meta">
+            <div><strong>Course:</strong> GIS4424C — Applications in GIS for Disease Ecology and Zoonoses</div>
+            <div><strong>Instructor:</strong> Dr. Jason Blackburn</div>
+            <div><strong>Date:</strong> Fall 2025</div>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <h2>Background</h2>
+          <p>This project addresses the public-health concern in Hawaiʻi of the uneven spatial impact of volcanic smog, or vog, produced during eruptive activity at Kīlauea. Vog forms when sulfur dioxide (SO₂) and fine particulate matter (PM₂.₅; particles less than 2.5 microns in diameter) released by volcanic activity accumulate and react in the atmosphere, creating air pollution that can aggravate asthma, chronic obstructive pulmonary disease (COPD), and other respiratory illnesses. Because vog exposure varies by location depending on eruption intensity, wind patterns, and distance from the volcano, some communities may face greater health risk than others.</p>
+          <p>The objective of this study was to identify where elevated vog exposure and underlying respiratory vulnerability overlap across Hawaiʻi census tracts during an active eruptive period from October 1st to December 1st of 2025, with the broader goal of highlighting communities where public-health preparedness and risk communication may be most needed.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Data and Materials</h2>
+          <p>The analysis combines environmental monitoring data with tract-level health data and census geography. Hourly SO₂ and PM₂.₅ measurements for the period from October 1 to December 1 of 2025 were obtained from the Hawaiʻi Department of Health Clean Air Branch in table form, and these station-based observations were used to derive a pollution exposure metric based on the number of hours above high-pollution thresholds.</p>
+          <p>Census tracts from 2020 were used as the geographic unit for vulnerability and risk mapping, and tract-level estimates of adult asthma prevalence and adult COPD prevalence from 2017–2022 were compiled from the Hawaiʻi Health Data Warehouse and joined to tract polygons. To support valid spatial analysis, all datasets were projected into NAD 1983 HARN UTM Zone 5N, allowing distance-based tools such as kernel density estimation and nearest-neighbor analysis to operate in consistent map units. This dataset design is appropriate because it links hazard, health vulnerability, and geography into a single analytical framework.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Methods</h2>
+          <p>Several GIS and spatial-statistical methods were used to transform raw observations into interpretable patterns of risk. First, kernel density estimation (KDE) was applied to monitoring station counts of hours above high-pollution thresholds to create a continuous vog exposure surface, using a 90 km search radius based on the monitoring network's mean nearest-neighbor distance. Next, zonal statistics were used to summarize the KDE surface by census tract, producing a tract-level measure of relative vog exposure intensity.</p>
+          <p>This exposure metric was then standardized with tract-level asthma prevalence and COPD prevalence by converting each variable to z-scores and averaging them into a composite Vog Risk Index. Finally, the project evaluated spatial patterning with Global Moran's I, Local Moran's I (LISA), and Getis-Ord Gi* hot-spot analysis using an 8-nearest-neighbor conceptualization of spatial relationships and false discovery rate correction for the local statistics. This workflow demonstrates analysis and modeling rather than only cartographic display.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Results</h2>
+          <p>The results show that vog-related respiratory risk was not distributed randomly across Hawaiʻi. The KDE surface indicated the greatest relative exposure intensity near Kīlauea and across the southern portion of the Big Island, while lower modeled exposure occurred farther from the main emission source.</p>
+          <p>The tract-level risk analysis also revealed meaningful clustering. Local Moran's I identified high-high clusters in the southern Big Island, indicating tracts with high risk surrounded by similarly high-risk neighbors, while low-low clusters appeared near Honolulu. The Getis-Ord Gi* results supported this pattern by identifying statistically significant hot spots of elevated respiratory risk in the south and cold spots in lower-risk areas. The strongest visual evidence includes the KDE exposure map, the Gi* hot-spot map, and the Local Moran's I cluster map and scatterplot, because together they directly show where exposure is concentrated, where combined risk is highest, and how strongly those tracts cluster spatially.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Figures</h2>
+          <div class="figure-grid">
+            <div class="figure-block full-width">
+              <div class="figure-placeholder">Figure 1 — KDE surface of vog exposure intensity across the Hawaiian Island chain</div>
+              <p class="figure-caption">Figure 1: Kernel density estimation (KDE) surface of vog exposure intensity across the Hawaiian Island chain, derived from monitoring station counts of hours above high-pollution thresholds using a 90 km search radius. Highest estimated exposure is concentrated near the Kīlauea eruption site on the southern Big Island.</p>
+            </div>
+            <div class="figure-block full-width">
+              <div class="figure-placeholder">Figure 2 — Getis-Ord Gi* hot-spot analysis of the composite Vog Risk Index by census tract</div>
+              <p class="figure-caption">Figure 2: Getis-Ord Gi* hot-spot analysis of the composite Vog Risk Index by census tract, with statistical confidence levels of 90%, 95%, and 99%. Significant hot spots of elevated respiratory risk are concentrated along the southern Big Island; no significant hot spots are identified in other parts of the state.</p>
+            </div>
+            <div class="figure-block">
+              <div class="figure-placeholder">Figure 3 — Local Moran's I (LISA) cluster map of the Vog Risk Index</div>
+              <p class="figure-caption">Figure 3: Local Moran's I (LISA) cluster map of the Vog Risk Index by census tract across Hawaiʻi. High-high clusters are concentrated in the southern Big Island in proximity to Kīlauea, while low-low clusters appear near Honolulu. High-low and low-high outliers indicate tracts whose risk values diverge from their spatial neighbors.</p>
+            </div>
+            <div class="figure-block">
+              <div class="figure-placeholder">Figure 4 — Moran's scatterplot for the Local Moran's I analysis (R² = 0.31)</div>
+              <p class="figure-caption">Figure 4: Moran's scatterplot for the Local Moran's I analysis of the Vog Risk Index, with z-transformed risk values on the x-axis and their spatial lag on the y-axis (R² = 0.31). Points in the upper-right and lower-left quadrants correspond to high-high and low-low clusters respectively; points in the remaining quadrants represent spatial outliers.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer id="contact">
+      <div class="container footer">
+        <div>
+          <strong>Cody Hunter</strong><br />
+          Geology & Geography — University of Florida
+        </div>
+        <div>
+          Email: <a href="mailto:codyhunter@ufl.edu">codyhunter@ufl.edu</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

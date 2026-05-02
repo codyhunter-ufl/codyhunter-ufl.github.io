@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kīlauea Hydrology | Cody Hunter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="name">Cody Hunter</div>
+          <div class="sub">Geology & Geography • University of Florida</div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="resume.html">Resume/CV</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container section">
+        <a class="back-link" href="index.html">← Back to Portfolio</a>
+
+        <div class="project-page-header">
+          <h1>Impacts of Volcanism on Hydrological Systems: Rainfall Anomalies, Ash Leachate Chemistry, and Spatial Patterns of Water-Quality Change During the 2018 Kīlauea Eruption</h1>
+          <div class="project-meta">
+            <div><strong>Course:</strong> GEO3280 — Principles of Geographic Hydrology</div>
+            <div><strong>Instructor:</strong> Dr. Johanna Engström</div>
+            <div><strong>Date:</strong> Fall 2025</div>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <h2>Background</h2>
+          <p>Kīlauea is one of the most active volcanoes on Earth, located on the Big Island of Hawaiʻi and sustained by a Pacific hotspot. In 2018, volcanic activity migrated from the summit and upper rift zone to the Lower East Rift Zone (LERZ), producing fissure eruptions and extensive lava flows that destroyed structures and fundamentally altered the surrounding landscape. Significant ash and gas emissions accompanied these events, generating harmful environmental impacts across the island. The eruptive period began in May 2018 and continued with continuous lava flow through September 2018.</p>
+          <p>This project investigates the intersection of volcanic activity and hydrology during that period, focusing on how anomalously elevated precipitation interacted with volcanic emissions and ash fallout to alter both atmospheric and surface-water chemistry across Kīlauea and its surrounding watersheds. This project was organized around three central research questions: first, whether rainfall over Kīlauea was anomalously high before and during the 2018 eruption; second, whether that rainfall reacted with ash fallout to influence rainwater and catchment chemistry; and third, whether spatial patterns in pollutants and acidity relative to the eruption and surrounding watersheds could be identified.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Data and Materials</h2>
+          <p>Five primary data sources were used in this analysis. Precipitation data came from Daymet V4, which provided gridded monthly rainfall at 1-kilometer resolution over the Hawaii domain; January through April totals were extracted for both a historical baseline period (2000–2006) and the eruption year (2018) to support the anomaly calculation. Water chemistry data came from two USGS sources: a full physical-chemical water-quality dataset covering the entire island, with coordinates and collection dates that allowed samples to be classified as Pre-Eruption, During-Eruption, or Post-Eruption; and a dedicated 2018 Kīlauea field dataset comprising two CSV files, one for ash leachate analyses and one for catchment and rainwater analyses, collected in close proximity to active fissures during the eruption itself.</p>
+          <p>Spatial context for the eruption was provided by USGS geospatial eruption data, specifically the 2018 LERZ lava flow footprint and mapped fissure locations, which served as reference layers throughout the analysis. Stream and watershed shapefiles from the State of Hawaiʻi Office of Planning and Sustainable Development were used to define hydrological boundaries for the catchment-level component of the study.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Methods</h2>
+          <p>Precipitation data from Daymet V4 were used to compute a rainfall anomaly by comparing January–April totals for 2018 against the multi-year baseline period (2000–2006). This comparison allowed identification of whether conditions in the months immediately preceding and overlapping with the eruption were wetter than normal across the Kīlauea region.</p>
+          <p>USGS water-quality sample locations were geocoded using their coordinate fields and classified temporally into Pre-Eruption, During-Eruption, and Post-Eruption periods based on collection dates. Water chemistry variables, including pH and concentrations of volatile and potentially toxic elements such as selenium (Se), sulfur (S), and arsenic (As), were then mapped spatially to identify patterns related to eruption fissures, lava flows, and watershed boundaries.</p>
+          <p>Ash leachate and catchment/rainwater chemistry data from the USGS field campaign were incorporated to supplement the fixed-station water-quality record. Because these samples were collected much closer to the active fissures, they provided a higher-resolution view of pollutant concentrations near the source of contamination. Catchment effects were evaluated by overlaying sample locations against watershed shapefiles and the LERZ lava footprint to understand how volcanic inputs moved through the hydrological system.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Results</h2>
+          <p>The months leading up to the 2018 Kīlauea eruption were characterized by above-average precipitation over the volcano, and this anomalously elevated rainfall continued for the duration of the eruptive period. This finding carried consequences across three environmental systems.</p>
+          <p>In the atmosphere, rainfall mixed with the large volumes of sulfur dioxide (SO₂) released by the eruption; SO₂ oxidized in the presence of water to form sulfuric acid, generating acid rain and sulfate aerosols collectively known as vog (volcanic smog) that spread across the island. At the surface, ashfall deposits released leachates when wetted, introducing volatile and potentially toxic elements, including selenium (Se), sulfur (S), and arsenic (As), into streams and catchments while simultaneously lowering pH and increasing turbidity. The elevated moisture conditions also had mechanical implications, as wet rock is generally weaker than dry rock, which may have influenced the behavior of volcanic materials during the eruptive period.</p>
+          <p>The Pre/During/Post-Eruption spatial analysis of water-quality monitoring data revealed discernible changes in pollutant concentrations and acidity across time periods, with the most pronounced chemical signatures appearing in areas downslope of active fissures and within catchments intersecting the LERZ lava footprint. Catchment-level mapping further demonstrated how volcanic inputs were transmitted through the island's hydrological network, with affected streams showing elevated pollutant signatures during and shortly after the eruptive period.</p>
+        </div>
+
+        <div class="project-section">
+          <h2>Figures</h2>
+          <div class="figure-grid">
+            <div class="figure-block full-width">
+              <div class="figure-placeholder">Figure 1 — Map of abnormal rainfall on the Big Island of Hawaii along with the extent of tephra and magma from the 2018 Kīlauea eruption</div>
+              <p class="figure-caption">Figure 1: Map of abnormal rainfall on the Big Island of Hawaii along with the extent of tephra and magma from the 2018 Kīlauea eruption.</p>
+            </div>
+            <div class="figure-block">
+              <div class="figure-placeholder">Figure 2a — Pollution recorded before the 2018 Kīlauea eruption</div>
+              <p class="figure-caption">Figure 2a: Map of pollution recorded before the 2018 Kīlauea eruption from USGS monitoring stations across the inhabited islands of Hawaii, including the extent of the magma released.</p>
+            </div>
+            <div class="figure-block">
+              <div class="figure-placeholder">Figure 2b — Pollution recorded during the 2018 Kīlauea eruption</div>
+              <p class="figure-caption">Figure 2b: Map of pollution recorded during the 2018 Kīlauea eruption from USGS monitoring stations across the inhabited islands of Hawaii, including the extent of the magma released.</p>
+            </div>
+            <div class="figure-block">
+              <div class="figure-placeholder">Figure 2c — Pollution recorded post-eruption</div>
+              <p class="figure-caption">Figure 2c: Map of pollution recorded post-eruption from USGS monitoring stations across the inhabited islands of Hawaii, including the extent of the magma released.</p>
+            </div>
+            <div class="figure-block">
+              <div class="figure-placeholder">Figure 3 — Map of eruption and tephra extent and local marine habitat</div>
+              <p class="figure-caption">Figure 3: Map of eruption and tephra extent and local marine habitat to highlight potential direct ecological effects of the eruption.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer id="contact">
+      <div class="container footer">
+        <div>
+          <strong>Cody Hunter</strong><br />
+          Geology & Geography — University of Florida
+        </div>
+        <div>
+          Email: <a href="mailto:codyhunter@ufl.edu">codyhunter@ufl.edu</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
