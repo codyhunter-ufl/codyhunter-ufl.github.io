@@ -397,6 +397,13 @@ footer a {
   font-style: italic;
 }
 
+.figure-block img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 10px;
+}
+
 .figure-caption {
   font-size: 0.82rem;
   color: var(--muted);
