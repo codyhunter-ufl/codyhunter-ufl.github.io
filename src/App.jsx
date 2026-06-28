@@ -1,260 +1,28 @@
 import { useEffect, useMemo, useState } from "react";
 import { projects } from "./projectData.js";
+import portfolioPdfUrl from "../images/cHunter_GeoE_Portfolio.pdf";
+import resumePdfUrl from "../images/cHunterCV(Aug2025).pdf";
+import hikingImageUrl from "../images/hikingimage.jpeg";
+import panoHeroUrl from "../images/pano-hero.jpg";
+import rockyStreamUrl from "../images/rockystream.jpeg";
+import seatedImageUrl from "../images/seated.jpeg";
 
-const imageAssets = import.meta.glob("../images/*", {
-  eager: true,
-  query: "?url",
-  import: "default"
-});
 const figureAssets = import.meta.glob("../figs/*", {
   eager: true,
   query: "?url",
   import: "default"
 });
 
-const asset = (path) => imageAssets[`../${path}`] || figureAssets[`../${path}`] || path;
+const imageAssets = {
+  "../images/cHunter_GeoE_Portfolio.pdf": portfolioPdfUrl,
+  "../images/cHunterCV(Aug2025).pdf": resumePdfUrl,
+  "../images/hikingimage.jpeg": hikingImageUrl,
+  "../images/pano-hero.jpg": panoHeroUrl,
+  "../images/rockystream.jpeg": rockyStreamUrl,
+  "../images/seated.jpeg": seatedImageUrl
+};
 
-const condensedProjectDraft = [
-  {
-    slug: "shield-vs-strato",
-    title: "Shield vs. Stratovolcanoes: Comparing Hazards of Volcanism in Hawai'i and Washington",
-    shortTitle: "Shield vs. Stratovolcanoes",
-    subtitle: "Comparing Hazards of Volcanism in Hawai'i and Washington",
-    meta: [
-      ["Course", "GIS4324 - GIS Analysis of Hazard Vulnerability"],
-      ["Instructor", "Dr. Kevin Ash"],
-      ["Date", "Spring 2025"]
-    ],
-    sections: [
-      {
-        heading: "Background",
-        paragraphs: [
-          "Volcanic hazards vary considerably between volcano types. Shield volcanoes such as Mauna Loa produce low-viscosity basaltic lava that can travel tens of kilometers, while stratovolcanoes such as Mount St. Helens are associated with explosive eruptions, pyroclastic flows, lahars, tephra fall, and earthquake hazards.",
-          "This project compares the 2022 Mauna Loa eruption and the 1980 Mount St. Helens eruption to understand how hazard distribution, frequency, and social vulnerability differ between these volcanic systems."
-        ]
-      },
-      {
-        heading: "Data",
-        paragraphs: [
-          "The analysis integrated USGS lava-flow hazard zones, 2022 Mauna Loa eruption shapefiles, Hawaii land-use and Native Hawaiian Land datasets, USGS Mount St. Helens hazard extents, georeferenced historical maps, fatality locations, ACS tract data, and FEMA National Risk Index volcanic hazard scores."
-        ]
-      },
-      {
-        heading: "Methods",
-        paragraphs: [
-          "Work was conducted in ArcGIS Pro. Historic Mount St. Helens disturbance maps were georeferenced against a Cascade Range DEM, fatality locations were overlaid, and hazard extents were compared with census and infrastructure layers.",
-          "For Mauna Loa, 2022 lava-flow polygons were intersected with land-use and Native Hawaiian Land datasets, then compared against USGS lava-flow hazard zones and tract-level population exposure."
-        ]
-      },
-      {
-        heading: "Results",
-        paragraphs: [
-          "The 2022 Mauna Loa eruption produced a roughly 19 km lava flow that covered conservation-zoned land and stopped short of the Daniel K. Inouye Highway. In contrast, the 1980 Mount St. Helens eruption produced broad pyroclastic, lahar, and ashfall impacts with major regional consequences.",
-          "FEMA NRI scores reflected this contrast: Hawaii Island tracts were comparatively low in national volcanic risk rankings, while Washington tracts near pyroclastic and lahar zones reached much higher volcanic hazard scores."
-        ]
-      }
-    ],
-    figures: [
-      ["figs/shieldfig1.jpg", "Georeferenced U.S. Forest Service post-eruption map of the May 18, 1980, Mount St. Helens eruption, showing lateral blast, pyroclastic-flow, and lahar disturbance zones.", true],
-      ["figs/shieldfig2.jpg", "USGS Lava-Flow Hazard Zones for Hawaii Island and the footprint of the November 27-December 10, 2022, Mauna Loa eruption.", false],
-      ["figs/shieldfig3.jpg", "FEMA National Risk Index volcanic hazard scores by census tract for Hawaii Island and Washington State.", false]
-    ]
-  },
-  {
-    slug: "mineral-exploration",
-    title: "Enhancing Mineral Exploration through Remote Sensing and Machine Learning: A Focus on Cobalt and Nickel in New Caledonia",
-    shortTitle: "Enhancing Mineral Exploration through Remote Sensing and Machine Learning",
-    subtitle: "A Focus on Cobalt and Nickel in New Caledonia",
-    meta: [
-      ["Course", "GIS4037 - Remote Sensing"],
-      ["Instructor", "Dr. Moulay Anwar Sounny-Slitine"],
-      ["Date", "Fall 2024"]
-    ],
-    sections: [
-      {
-        heading: "Background",
-        paragraphs: [
-          "This project investigates whether custom spectral indices and machine learning classification can identify cobalt and nickel deposits in New Caledonia using Google Earth Engine. The goal was to reduce the cost and environmental footprint of traditional mineral exploration."
-        ]
-      },
-      {
-        heading: "Data",
-        paragraphs: [
-          "Sentinel-2 spectral bands, NASA global elevation data, NDVI masking, and known mining operation locations were combined to identify likely laterite and ultramafic rock signatures."
-        ]
-      },
-      {
-        heading: "Methods",
-        paragraphs: [
-          "Two normalized difference indices were developed: LNDI using SWIR and Red Edge bands to highlight lateritic soils, and UNDI using SWIR and NIR bands to highlight ultramafic materials.",
-          "A supervised Random Forest classifier was trained in Google Earth Engine using forest, development/barren, water, herbaceous, and cobalt/nickel classes. The final composite map overlaid the machine-learning output on the spectral-index result."
-        ],
-        formulas: [
-          ["LNDI = (SWIR - RedEdge) / (SWIR + RedEdge)", "Laterite Normalized Difference Index"],
-          ["UNDI = (SWIR - NIR) / (SWIR + NIR)", "Ultramafic Normalized Difference Index"]
-        ]
-      },
-      {
-        heading: "Results",
-        paragraphs: [
-          "Both the spectral-index map and Random Forest output correctly highlighted most known mining operations and identified additional possible deposit areas. The composite map strengthened confidence where both methods agreed."
-        ]
-      }
-    ],
-    figures: [
-      ["figs/mineralfig1.jpg", "Combined LNDI, UNDI, and DEM spectral index map of New Caledonia alongside true-color Sentinel-2 imagery.", true],
-      ["figs/mineralfig2.jpg", "Random Forest classification output for New Caledonia alongside true-color Sentinel-2 imagery.", false],
-      ["figs/mineralfig3.jpg", "Composite map overlaying Random Forest classification onto the spectral indices map.", false]
-    ]
-  },
-  {
-    slug: "vog-exposure",
-    title: "Vog Exposure and Respiratory Vulnerability in Hawai'i",
-    shortTitle: "Vog Exposure and Respiratory Vulnerability in Hawai'i",
-    subtitle: "Spatial Risk Modeling & Hot-Spot Analysis",
-    meta: [
-      ["Course", "GIS4424C - Applications in GIS for Disease Ecology and Zoonoses"],
-      ["Instructor", "Dr. Jason Blackburn"],
-      ["Date", "Fall 2025"]
-    ],
-    sections: [
-      {
-        heading: "Background",
-        paragraphs: [
-          "This public-health GIS project studied the uneven spatial impacts of volcanic smog, or vog, produced by eruptive activity at Kilauea. The analysis focused on where elevated exposure and respiratory vulnerability overlap across Hawaii census tracts."
-        ]
-      },
-      {
-        heading: "Data and Materials",
-        paragraphs: [
-          "Hourly SO2 and PM2.5 data from Hawaii Department of Health monitoring stations were paired with 2020 census tracts and tract-level adult asthma and COPD prevalence estimates from the Hawaii Health Data Warehouse."
-        ]
-      },
-      {
-        heading: "Methods",
-        paragraphs: [
-          "Kernel density estimation modeled continuous vog exposure using monitoring-station exceedance counts. Zonal statistics summarized exposure by tract, then exposure, asthma prevalence, and COPD prevalence were standardized and averaged into a composite Vog Risk Index.",
-          "Global Moran's I, Local Moran's I, and Getis-Ord Gi* hot-spot analysis were used to evaluate clustering and statistically significant risk patterns."
-        ]
-      },
-      {
-        heading: "Results",
-        paragraphs: [
-          "Modeled exposure was highest near Kilauea and across the southern Big Island. Local clustering and hot-spot analysis identified elevated respiratory risk in the same area, while lower-risk clusters appeared near Honolulu."
-        ]
-      }
-    ],
-    figures: [
-      ["figs/vogfig1.png", "Kernel density estimation surface of vog exposure intensity across the Hawaiian Island chain.", true],
-      ["figs/vogfig2.png", "Getis-Ord Gi* hot-spot analysis of the composite Vog Risk Index by census tract.", true],
-      ["figs/vogfig3.jpg", "Local Moran's I cluster map of the Vog Risk Index by census tract across Hawaii.", false],
-      ["figs/vogfig4.jpg", "Moran's scatterplot for the Local Moran's I analysis of the Vog Risk Index.", false]
-    ]
-  },
-  {
-    slug: "brooks-range",
-    title: "Characterization of the Structural and Stratigraphic Relationships Across the Northern Boundary of the High-Pressure Terrane in the Brooks Range Orogen of Northern Alaska",
-    shortTitle: "Structural & Stratigraphic Relationships Across the Brooks Range",
-    subtitle: "High-Pressure Terrane, Northern Alaska - Undergraduate Honors Research",
-    meta: [
-      ["Course", "Undergraduate Senior Project (USP) - Honors Thesis"],
-      ["Research Advisor", "Dr. Jim Vogl"],
-      ["Date", "July 2025 - May 2026"]
-    ],
-    sections: [
-      {
-        heading: "Background",
-        paragraphs: [
-          "This honors research examines the boundary between the Schist Belt and Central Belt in the Brooks Range of northern Alaska. The work focuses on structural relationships, metamorphic grade changes, and detrital zircon geochronology across the high-pressure terrane boundary.",
-          "The Hammond River shear zone is central to competing models of Schist Belt exhumation, including thrust-related stacking and extensional unroofing."
-        ]
-      },
-      {
-        heading: "Data and Methods",
-        paragraphs: [
-          "Geologic mapping was conducted west of the Dalton Highway near Wiseman, Vermont Creek, Gold Creek, Smith Creek, and the Hammond River. Fieldwork included foliation, lineation, fold, and kinematic measurements logged in StraboSpot.",
-          "Seven quartzite, metasandstone, and quartz-rich schist samples were selected for U-Pb detrital zircon geochronology and processed through crushing, milling, magnetic separation, and heavy liquid separation."
-        ]
-      },
-      {
-        heading: "Preliminary Results",
-        paragraphs: [
-          "Mapping documented a north-to-south decrease in metamorphic grade and evidence for at least two deformation phases. Steep foliations in the Wiseman Creek gorge likely reflect concentrated strain near the Schist Belt/Central Belt boundary."
-        ]
-      },
-      {
-        heading: "Conclusion and Future Work",
-        paragraphs: [
-          "Field mapping and mineral separation are complete. Once LA-ICP-MS ages are available, the data will help test whether units across the Hammond River shear zone share depositional histories or represent separate sedimentary basins."
-        ]
-      }
-    ],
-    table: {
-      caption: "Table 1. Samples processed for detrital zircon U-Pb geochronology in this study.",
-      headers: ["Sample", "Unit", "Locality", "Rock Type", "Coordinates"],
-      rows: [
-        ["25BR03", "SB (Northern)", "Wiseman Creek", "Calc-schist", "67.4202520 N, 150.1406040 W"],
-        ["25BR31", "HR Unit", "Gold Creek", "Block-weathering metasandstone", "67.5107541 N, 149.8125003 W"],
-        ["25BR36", "Midnight Dome", "Smith Creek Dome", "Quartzose schist", "67.4769045 N, 150.1804389 W"],
-        ["25BR48", "Midnight Dome", "Smith Ck. Dome - Midnight Dome", "Quartzose schist", "67.4865129 N, 150.1596195 W"],
-        ["25BR66", "Nugget Schist", "Nugget Ridge", "Quartzose schist", "67.4676018 N, 149.8426963 W"],
-        ["25BR96", "Midnight Dome", "Midnight Dome", "Meta-sandstone/quartzite", "67.4593986 N, 150.1690418 W"],
-        ["25BR97", "SB (Northern)", "Wiseman Creek gorge", "Quartzose schist", "67.4236791 N, 150.1413421 W"]
-      ]
-    },
-    figures: [["figs/characterfig1.jpg", "Shaded relief map of the study area west of the Dalton Highway, central Brooks Range, Alaska.", true]],
-    references: [
-      "Dickinson, W. R., & Gehrels, G. E. (2009). Use of U-Pb ages of detrital zircons to infer maximum depositional ages of strata. Earth and Planetary Science Letters, 288(1-2), 115-125.",
-      "Gehrels, G. (2014). Detrital zircon U-Pb geochronology applied to tectonics. Annual Review of Earth and Planetary Sciences, 42(1), 127-149.",
-      "Hoiland, C. W., Miller, E. L., & Pease, V. (2018). Greenschist facies metamorphic zircon overgrowths as a constraint on exhumation of the Brooks Range Metamorphic Core, Alaska. Tectonics, 37(10), 3429-3455.",
-      "Till, A. B., Dumoulin, J. A., Harris, A. G., Moore, T. E., Bleick, H. A., & Siwiec, B. R. (2008). Bedrock geologic map of the southern Brooks Range, Alaska. USGS Open-File Report 2008-1149."
-    ]
-  },
-  {
-    slug: "kilauea-hydrology",
-    title: "Impacts of Volcanism on Hydrological Systems: Rainfall Anomalies, Ash Leachate Chemistry, and Spatial Patterns of Water-Quality Change During the 2018 Kilauea Eruption",
-    shortTitle: "Impacts of Volcanism on Hydrological Systems",
-    subtitle: "Rainfall Anomalies & Water-Quality Change During the 2018 Kilauea Eruption",
-    meta: [
-      ["Course", "GEO3280 - Principles of Geographic Hydrology"],
-      ["Instructor", "Dr. Johanna Engstrom"],
-      ["Date", "Fall 2025"]
-    ],
-    sections: [
-      {
-        heading: "Background",
-        paragraphs: [
-          "This project investigates how the 2018 Kilauea eruption intersected with hydrological systems through rainfall anomalies, ash fallout, acid rain, and water-quality change."
-        ]
-      },
-      {
-        heading: "Data and Materials",
-        paragraphs: [
-          "The analysis used Daymet V4 precipitation data, USGS water-quality records, USGS 2018 Kilauea ash leachate and catchment chemistry data, mapped lava-flow and fissure data, and Hawaii stream and watershed shapefiles."
-        ]
-      },
-      {
-        heading: "Methods",
-        paragraphs: [
-          "January-April 2018 precipitation totals were compared with a 2000-2006 baseline. Water-quality samples were mapped and grouped into pre-eruption, during-eruption, and post-eruption periods, then compared against fissures, lava flows, and watershed boundaries."
-        ]
-      },
-      {
-        heading: "Results",
-        paragraphs: [
-          "Above-average precipitation coincided with the eruption period, creating conditions for sulfur dioxide, ashfall, and leachates to alter atmospheric and surface-water chemistry. The strongest chemical signatures appeared downslope of active fissures and within catchments intersecting the Lower East Rift Zone lava footprint."
-        ]
-      }
-    ],
-    figures: [
-      ["figs/impactfig1.jpg", "Map of abnormal rainfall on the Big Island of Hawaii along with tephra and magma extent from the 2018 Kilauea eruption.", true],
-      ["figs/impactfig2a.png", "Pollution recorded before the 2018 Kilauea eruption.", false],
-      ["figs/impactfig2b.png", "Pollution recorded during the 2018 Kilauea eruption.", false],
-      ["figs/impactfig2c.png", "Pollution recorded after the 2018 Kilauea eruption.", false],
-      ["figs/impactfig3.jpg", "Map of eruption and tephra extent and local marine habitat.", true]
-    ]
-  }
-];
+const asset = (path) => imageAssets[`../${path}`] || figureAssets[`../${path}`] || path;
 
 function useHashRoute() {
   const [hash, setHash] = useState(() => window.location.hash || "#/");
@@ -313,7 +81,15 @@ function HomePage() {
   return (
     <>
       <section>
-        <img className="block h-[340px] w-full object-cover" src={asset("images/pano.jpg")} alt="Mountain panorama" />
+        <img
+          className="block h-[340px] w-full object-cover"
+          src={asset("images/pano-hero.jpg")}
+          alt="Mountain panorama"
+          width="2400"
+          height="573"
+          fetchPriority="high"
+          decoding="async"
+        />
       </section>
       <main>
         <section className="mx-auto w-[min(900px,92%)] py-[60px] pb-[30px] text-center">
@@ -365,7 +141,14 @@ function HomePage() {
               ["images/rockystream.jpeg", "Rocky stream"],
               ["images/hikingimage.jpeg", "Mountain hiking scene"]
             ].map(([src, alt]) => (
-              <img className="w-full rounded-lg" src={asset(src)} alt={alt} key={src} />
+              <img
+                className="aspect-[4/3] w-full rounded-lg object-cover"
+                src={asset(src)}
+                alt={alt}
+                key={src}
+                loading="lazy"
+                decoding="async"
+              />
             ))}
           </div>
         </section>
@@ -466,7 +249,7 @@ function Figures({ figures }) {
       <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
         {figures.map(([src, caption, fullWidth]) => (
           <figure className={`rounded-md border border-line bg-white p-4 ${fullWidth ? "md:col-span-full" : ""}`} key={src}>
-            <img className="mb-2.5 block w-full rounded" src={asset(src)} alt={caption} />
+            <img className="mb-2.5 block w-full rounded" src={asset(src)} alt={caption} loading="lazy" decoding="async" />
             <figcaption className="text-[0.82rem] italic leading-6 text-muted">{caption}</figcaption>
           </figure>
         ))}
