@@ -381,7 +381,7 @@ export default function App() {
     if (["about", "projects", "contact"].includes(route)) {
       window.setTimeout(() => document.getElementById(route)?.scrollIntoView(), 0);
     } else {
-      window.scrollTo({ top: 0, behavior: "instant" });
+      window.scrollTo({ top: 0, behavior: "auto" });
     }
   }, [route]);
 
